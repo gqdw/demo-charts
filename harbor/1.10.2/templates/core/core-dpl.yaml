@@ -40,12 +40,16 @@ spec:
             port: 8080
           initialDelaySeconds: {{ .Values.core.livenessProbe.initialDelaySeconds }}
           periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
         readinessProbe:
           httpGet:
             path: /api/ping
             port: 8080
-          initialDelaySeconds: 20
+          initialDelaySeconds: 30
           periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
         envFrom:
         - configMapRef:
             name: "{{ template "harbor.core" . }}"
