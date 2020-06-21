@@ -46,12 +46,16 @@ spec:
             port: 9999
           initialDelaySeconds: 300
           periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
         readinessProbe:
           httpGet:
             path: /health
             port: 9999
-          initialDelaySeconds: 1
+          initialDelaySeconds: 30
           periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
 {{- if .Values.chartmuseum.resources }}
         resources:
 {{ toYaml .Values.chartmuseum.resources | indent 10 }}

@@ -53,13 +53,17 @@ spec:
             port: {{ .port }}
           initialDelaySeconds: 300
           periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
         readinessProbe:
           httpGet:
             scheme: {{ .scheme }}
             path: /
             port: {{ .port }}
-          initialDelaySeconds: 1
+          initialDelaySeconds: 30
           periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
 {{- if .Values.nginx.resources }}
         resources:
 {{ toYaml .Values.nginx.resources | indent 10 }}
