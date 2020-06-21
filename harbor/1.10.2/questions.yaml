@@ -114,7 +114,7 @@ questions:
   group: "Persistence Storage Settings"
 - variable: persistence.persistentVolumeClaim.chartmuseum.size
   required: true
-  default: "5Gi"
+  default: "1Gi"
   description: "Chartmuseum Persistent Volume Size"
   type: string
   label: Chartmuseum Volume Size
@@ -181,7 +181,7 @@ questions:
   group: "Database Settings"
 - variable: persistence.persistentVolumeClaim.database.size
   required: true
-  default: "5Gi"
+  default: "2Gi"
   description: "Database Persistent Volume Size"
   type: string
   label: Database Volume Size
@@ -286,7 +286,7 @@ questions:
   group: "Redis Settings"
 - variable: persistence.persistentVolumeClaim.redis.size
   required: true
-  default: "5Gi"
+  default: "1Gi"
   description: "Redis Persistent Volume Size"
   type: string
   label: Redis Volume Size
