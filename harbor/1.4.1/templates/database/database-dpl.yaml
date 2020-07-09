@@ -85,7 +85,7 @@ spec:
       - name: database-data
       {{- if and .Values.persistence.enabled (not $database.existingClaim) }}
         persistentVolumeClaim:
-          claimName: {{ $database.existingClaim | default (include "harbor.database" .) }}
+          claimName: {{ .Values.persistence.persistentVolumeClaim.database.existingClaim | default (include "harbor.database" .) }}
       {{- else }}
         emptyDir: {}
       {{- end }}
