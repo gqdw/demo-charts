@@ -127,6 +127,29 @@ questions:
   label: Existing Persistent Volume Claim for Chartmuseum
   show_if: "persistence.enabled=true"
   group: "Persistence Storage Settings for ChartMuseum"
+# trivy persistence config
+- variable: persistence.persistentVolumeClaim.trivy.storageClass
+  default: ""
+  description: "If undefined or null, uses the default StorageClass. Default to null"
+  type: storageclass
+  label: Default StorageClass for Trivy
+  show_if: "persistence.enabled=true"
+  group: "Persistence Storage Settings for Trivy"
+- variable: persistence.persistentVolumeClaim.trivy.size
+  required: true
+  default: "1Gi"
+  description: "Trivy Persistent Volume Size"
+  type: string
+  label: Trivy Volume Size
+  show_if: "persistence.enabled=true"
+  group: "Persistence Storage Settings for Trivy"
+- variable: persistence.persistentVolumeClaim.trivy.existingClaim
+  default: ""
+  description: "If not empty, uses the specified existing PVC instead of creating new one"
+  type: pvc
+  label: Existing Persistent Volume Claim for Trivy
+  show_if: "persistence.enabled=true"
+  group: "Persistence Storage Settings for Trivy"
 # jobservice config
 - variable: jobservice.jobLogger
   default: "database"
