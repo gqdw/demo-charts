@@ -151,7 +151,7 @@ spec:
       {{- if .Values.caBundleSecretName }}
 {{ include "harbor.caBundleVolume" . | indent 6 }}
       {{- end }}
-      {{- if and .Values.persistence.enabled (not $trivy.existingClaim) }}
+      {{- if .Values.persistence.enabled }}
       - name: "data"
         persistentVolumeClaim:
           claimName: {{ .Values.persistence.persistentVolumeClaim.trivy.existingClaim | default (include "harbor.trivy" .) }}
